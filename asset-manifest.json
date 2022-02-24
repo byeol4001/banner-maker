@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/banner-maker/static/js/main.5cb77b11.js",
+    "index.html": "/banner-maker/index.html",
+    "main.5cb77b11.js.map": "/banner-maker/static/js/main.5cb77b11.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.5cb77b11.js"
+  ]
+}
