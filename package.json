@@ -1,5 +1,5 @@
 {
-  "name": "make-thumbnail",
+  "name": "banner-maker",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
