@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const MainWrap = styled.div`
+export const MainWrap = styled.div`
     width:100vw;
     height:max-content;
     display:flex;
@@ -10,7 +10,7 @@ const MainWrap = styled.div`
     background: ${props => props.theme.bgColor};
 `
 
-const Title = styled.div`
+export const Title = styled.div`
     font-size:60px;
     font-weight: 900;
     margin-bottom:40px;
@@ -18,7 +18,7 @@ const Title = styled.div`
     font-family: 'Montserrat', sans-serif;
 `
 
-const InputBox = styled.div`
+export const InputBox = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -33,7 +33,7 @@ const InputBox = styled.div`
     }
 `
 
-const Input = styled.div`
+export const Input = styled.div`
     display: flex;
     flex-direction: column;
     label{
@@ -63,7 +63,7 @@ const Input = styled.div`
     }
 `
 
-const BannerBox = styled.div`
+export const BannerBox = styled.div`
     width:100%;
     max-width:860px;
     height:422px;
@@ -73,7 +73,7 @@ const BannerBox = styled.div`
 }
 `
 
-const BannerTitle = styled.div`
+export const BannerTitle = styled.div`
     position:absolute;
     color:#fff;
     top:120px;
@@ -84,7 +84,7 @@ const BannerTitle = styled.div`
     font-weight:700;
 `
 
-const BannerSub = styled(BannerTitle)`
+export const BannerSub = styled(BannerTitle)`
     top:240px;
     font-size:35px;
     font-weight:100;
@@ -92,7 +92,7 @@ const BannerSub = styled(BannerTitle)`
 `
 
 
-const Line = styled.div`
+export const Line = styled.div`
     width:100%;
     height:40px;
     position:absolute;
@@ -101,7 +101,7 @@ const Line = styled.div`
     background:${props => props.color};
 `
 
-const CopyButton = styled.div`
+export const CopyButton = styled.div`
     padding: 9px 13px;
     border:3px solid;
     border-color :${props => props.theme.fontColor};
@@ -117,7 +117,7 @@ const CopyButton = styled.div`
 
 `
 
-const Devider = styled.div`
+export const Devider = styled.div`
     max-width:860px;
     width:100%;
     height:2px;
@@ -125,7 +125,7 @@ const Devider = styled.div`
     background :${props => props.theme.fontColor}
 `
 
-const PrevWrap = styled.div`
+export const PrevWrap = styled.div`
     max-width: 840px;
     width: 100%;
     display: flex;
@@ -139,5 +139,3 @@ const PrevWrap = styled.div`
         font-size:25px;
     }
 `
-
-export { MainWrap, Title, InputBox, Input, BannerBox, BannerTitle, BannerSub, Line, CopyButton, Devider, PrevWrap} 

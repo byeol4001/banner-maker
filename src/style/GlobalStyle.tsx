@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
-const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
 @font-face {
     font-family: 'NanumSquareRound';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
@@ -59,8 +59,6 @@ const GlobalStyle = createGlobalStyle`
         border-spacing: 0;
     }
 `;
-
-export { GlobalStyle };
 
 export const theme = {
     bgColor:'#EBE7E1',
