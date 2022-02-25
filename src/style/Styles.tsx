@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const MainWrap = styled.div`
     width:100vw;
@@ -7,6 +7,7 @@ export const MainWrap = styled.div`
     flex-direction: column;
     align-items:center;
     justify-content:center;
+    padding: 30px 0;
     background: ${props => props.theme.bgColor};
 `
 
@@ -137,5 +138,52 @@ export const PrevWrap = styled.div`
         font-family: inherit;
         font-weight:700;
         font-size:25px;
+    }
+`
+
+export const FooterWrap = styled.div`
+    padding: 30px 0;
+    color: ${props => props.theme.fontColor};
+
+`
+
+const effect = keyframes`
+    0% {
+        opacity:1;
+    }
+    50% {
+        opacity:0.6;
+        transform: translate(0, -5px)
+    }
+    100% {
+        opacity:1;
+    }
+`
+
+export const LinkWrap = styled.div`
+    display:flex;
+    gap:10px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom:20px;
+    & > a{
+        text-decoration: none;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 100%;
+        color:#fff;
+        font-family: 'Montserrat',sans-serif;
+        font-weight: 900;
+        font-size: 14px;
+        animation: ${effect} 2s linear infinite;
+        &:first-child{
+            background: #4063D4;
+        }
+        &:last-child{
+            background: #1c1c1c;
+        }
     }
 `

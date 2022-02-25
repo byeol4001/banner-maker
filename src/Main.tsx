@@ -5,7 +5,7 @@ import { HexColorPicker } from "react-colorful";
 import * as clipboard from 'clipboard-polyfill';
 import { ClipboardItem } from 'clipboard-polyfill';
 
-import { MainWrap, Title, InputBox, Input, BannerBox, BannerTitle, BannerSub, Line, CopyButton, Devider, PrevWrap} from "./style/Styles"
+import { Title, InputBox, Input, BannerBox, BannerTitle, BannerSub, Line, CopyButton, Devider, PrevWrap} from "./style/Styles"
 
 
 export default function Main() {
@@ -33,7 +33,7 @@ export default function Main() {
   }
 
 
-  return <MainWrap>
+  return <>
     <Title>Banner Maker</Title>
     <InputBox>
     <div>
@@ -61,6 +61,6 @@ export default function Main() {
       <BannerSub>{sub}</BannerSub>
       <Line color={lineColor}/>
     </BannerBox>
-    <Devider/>    
-  </MainWrap>;
+    <Devider/>
+  </>;
 }
