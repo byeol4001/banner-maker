@@ -61,3 +61,8 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export { GlobalStyle };
+
+export const theme = {
+    bgColor:'#EBE7E1',
+    fontColor: '#2C705E'
+}
