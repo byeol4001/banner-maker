@@ -5,13 +5,22 @@ import { HexColorPicker } from "react-colorful";
 import * as clipboard from 'clipboard-polyfill';
 import { ClipboardItem } from 'clipboard-polyfill';
 
-import { Title, InputBox, Input, BannerBox, BannerTitle, BannerSub, Line, CopyButton, Devider, PrevWrap} from "./style/Styles"
+import { Title, InputBox, Input, BannerBox, BannerTitle, BannerSub, Line, CopyButton, Devider, PrevWrap, CumtomBox, CustomInput} from "./style/Styles"
+import { useRecoilState } from "recoil";
+import { TitleCustom, DescriptionCustom } from './atom/atom'
+
+
 
 
 export default function Main() {
   const [title,setTitle] = useState("")
   const [sub,setSub] = useState("")
   const [lineColor, setLineColor] = useState("#2C705E")
+  const [titleStyle,setTitleStyle] = useRecoilState(TitleCustom)
+  const [descriptionStyle,setDescriptionStyle] = useRecoilState(DescriptionCustom)
+
+console.log(titleStyle,descriptionStyle)
+
   const copyBanner:any = useRef()
   const handleTitle = (e: React.FormEvent<HTMLInputElement>)=>{
     setTitle(e.currentTarget.value)
@@ -32,6 +41,35 @@ export default function Main() {
   });
   }
 
+  const handleTitleStyleTop = (e: React.FormEvent<HTMLInputElement>) => {
+    setTitleStyle((oldValue) => {
+      const newTop = {top: parseInt(e.currentTarget.value)}
+      return {...oldValue, ...newTop}
+    })
+  }
+
+  const handleTitleStyleFont = (e: React.FormEvent<HTMLInputElement>) => {
+    setTitleStyle((oldValue) => {
+      const newFontsize = {fontsize: parseInt(e.currentTarget.value)}
+      return {...oldValue, ...newFontsize}
+    })
+  }
+
+
+  const handleDesciptionStyleTop = (e: React.FormEvent<HTMLInputElement>) => {
+    setDescriptionStyle((oldValue) => {
+      const newTop = {top: parseInt(e.currentTarget.value)}
+      return {...oldValue, ...newTop}
+    })
+  }
+
+  const handleDesciptionStyleFont = (e: React.FormEvent<HTMLInputElement>) => {
+    setDescriptionStyle((oldValue) => {
+      const newFontsize = {fontsize: parseInt(e.currentTarget.value)}
+      return {...oldValue, ...newFontsize}
+    })
+  }
+
 
   return <>
     <Title>Banner Maker</Title>
@@ -40,10 +78,30 @@ export default function Main() {
       <Input>
         <label htmlFor="title">Title</label>
         <input onChange={handleTitle} id="title" placeholder="제목 입력" type="text"/>
+        <CumtomBox>
+          <Input>
+            <label htmlFor="title-top-custom">Title Top</label>
+            <CustomInput id="title-top-custom" onChange={handleTitleStyleTop} defaultValue={titleStyle.top} />
+          </Input>
+          <Input>
+            <label htmlFor="title-fontsize-custom">Title Font Size</label>
+            <CustomInput id="title-fontsize-custom" onChange={handleTitleStyleFont} defaultValue={titleStyle.fontsize} />
+          </Input>
+        </CumtomBox>
       </Input>
       <Input>
-        <label htmlFor="sub-title">Desciption</label>
+        <label htmlFor="sub-title">Description</label>
         <input onChange={handleSub} id="sub-title" placeholder="설명 입력" type="text"/>
+        <CumtomBox>
+          <Input>
+            <label htmlFor="Description-top-custom">Description Top</label>
+            <CustomInput id="Description-top-custom" onChange={handleDesciptionStyleTop} defaultValue={descriptionStyle.top} />
+          </Input>
+          <Input>
+            <label htmlFor="Description-fontsize--custom">Description Font Size</label>
+            <CustomInput id="Description-fontsize--custom" onChange={handleDesciptionStyleFont} defaultValue={descriptionStyle.fontsize} />
+          </Input>
+        </CumtomBox>
       </Input>
       </div>
       <Input>
@@ -57,8 +115,8 @@ export default function Main() {
     </PrevWrap>
     <Devider/>
     <BannerBox ref={copyBanner}>
-      <BannerTitle>{title}</BannerTitle>
-      <BannerSub>{sub}</BannerSub>
+      <BannerTitle style={{fontSize:titleStyle.fontsize}} {...titleStyle}>{title}</BannerTitle>
+      <BannerSub style={{fontSize:descriptionStyle.fontsize}} {...descriptionStyle}>{sub}</BannerSub>
       <Line color={lineColor}/>
     </BannerBox>
     <Devider/>

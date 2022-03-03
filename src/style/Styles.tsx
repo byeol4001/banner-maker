@@ -71,23 +71,20 @@ export const BannerBox = styled.div`
     position:relative;
     background:#252526;
     box-shadow: #ddd 7px 7px 20px;
-}
 `
+
 
 export const BannerTitle = styled.div`
     position:absolute;
     color:#fff;
-    top:120px;
     left: 50%;
     transform: translate(-50%,0);
     width: fit-content;
-    font-size:60px;
+    top:${(props:{top? :number}) => props.top+'px'};
     font-weight:700;
 `
 
 export const BannerSub = styled(BannerTitle)`
-    top:240px;
-    font-size:35px;
     font-weight:100;
     font-family: 'Cafe24Ohsquareair',sans-serif;
 `
@@ -186,4 +183,15 @@ export const LinkWrap = styled.div`
             background: #1c1c1c;
         }
     }
+`
+
+export const CumtomBox = styled.div`
+    display: flex;
+    gap: 20px;
+    margin-top: 15px;
+`
+
+export const CustomInput = styled.input.attrs({type:'number'})`
+    width: auto!important;
+
 `
