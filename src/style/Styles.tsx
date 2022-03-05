@@ -7,7 +7,7 @@ export const MainWrap = styled.div`
     flex-direction: column;
     align-items:center;
     justify-content:center;
-    padding: 30px 0;
+    padding: 70px 0;
     background: ${props => props.theme.bgColor};
 `
 
@@ -103,7 +103,8 @@ export const CopyButton = styled.div`
     padding: 9px 13px;
     border:3px solid;
     border-color :${props => props.theme.fontColor};
-    color: ${props => props.theme.fontColor};
+    background :${(props:{copyings? :boolean}) => props.copyings ? '#2C705E' : "#EBE7E1"};
+    color :${(props:{copyings? :boolean}) => props.copyings ? '#EBE7E1' : "#2C705E"};
     font-weight:900;
     font-family: inherit;
     border-radius: 10px;

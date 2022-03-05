@@ -16,10 +16,9 @@ export default function Main() {
   const [title,setTitle] = useState("")
   const [sub,setSub] = useState("")
   const [lineColor, setLineColor] = useState("#2C705E")
+  const [copying,setCopying] = useState(false)
   const [titleStyle,setTitleStyle] = useRecoilState(TitleCustom)
   const [descriptionStyle,setDescriptionStyle] = useRecoilState(DescriptionCustom)
-
-console.log(titleStyle,descriptionStyle)
 
   const copyBanner:any = useRef()
   const handleTitle = (e: React.FormEvent<HTMLInputElement>)=>{
@@ -34,9 +33,13 @@ console.log(titleStyle,descriptionStyle)
   };
 
   const copyToClipboard = () =>{
+    setCopying(true)
     html2canvas(copyBanner.current).then((canvas: HTMLCanvasElement) => {
       canvas.toBlob((blob:any) => {
         clipboard.write([new ClipboardItem({ 'image/png': blob })]);
+        setTimeout(()=>{
+          setCopying(false)
+        },1300)
       })
   });
   }
@@ -111,7 +114,7 @@ console.log(titleStyle,descriptionStyle)
     </InputBox>
     <PrevWrap>
       <h5>Preview</h5>
-      <CopyButton onClick={copyToClipboard}>copy</CopyButton>
+      <CopyButton copyings={copying} onClick={copyToClipboard}>{copying ? 'compelete COPY 🥳' :'copy'}</CopyButton>
     </PrevWrap>
     <Devider/>
     <BannerBox ref={copyBanner}>
