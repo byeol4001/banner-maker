@@ -9,6 +9,10 @@ export const MainWrap = styled.div`
     justify-content:center;
     padding: 70px 0;
     background: ${props => props.theme.bgColor};
+    @media (max-width: 950px) {
+        width: calc(100vw - 60px);
+        padding: 70px 30px;
+    }
 `
 
 export const Title = styled.div`
@@ -32,6 +36,14 @@ export const InputBox = styled.div`
         gap: 20px;
         width: 530px;
     }
+    @media (max-width: 850px) {
+        width:90%;
+        flex-direction: column;
+        gap:50px;
+        & > div:first-child{
+            width: 100%;
+        }
+    }
 `
 
 export const Input = styled.div`
@@ -45,7 +57,6 @@ export const Input = styled.div`
         color: ${props => props.theme.fontColor};
     }
     input{
-        width:100%;
         max-width:600px;
         padding: 20px;
         font-size: 20px;
@@ -60,6 +71,13 @@ export const Input = styled.div`
         &::placeholder{
             color:#fff;
             opacity:0.4;
+        }
+    }
+    @media (max-width: 600px) {
+        align-items:center;
+        input {
+            width:100%;
+            max-width:100%;
         }
     }
 `
@@ -190,9 +208,16 @@ export const CumtomBox = styled.div`
     display: flex;
     gap: 20px;
     margin-top: 15px;
+    @media (max-width: 850px) {
+        width: 100%;
+        flex-direction: column;
+    }
 `
 
 export const CustomInput = styled.input.attrs({type:'number'})`
     width: auto!important;
+    @media (max-width: 600px) {
+        width: 100%!important;
+    }
 
 `
